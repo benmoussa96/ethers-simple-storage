@@ -137,3 +137,4 @@ artifacts/
 cache/
 *.abi
 *.bin
+.env
