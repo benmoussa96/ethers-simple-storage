@@ -22,10 +22,10 @@ async function main() {
 
   console.log(`=> Contract deployed to ${contract.address}`);
 
-  // console.log("=> T ransaction response:");
+  // console.log("=> Transaction response:");
   // console.log(contract.deployTransaction);
 
-  // console.log("=> T ransaction receipt:");
+  // console.log("=> Transaction receipt:");
   // const transactionRceipt = await contract.deployTransaction.wait(1);
   // console.log(transactionRceipt);
 
