@@ -17,8 +17,10 @@ async function main() {
   const bin = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.bin", "utf8");
   const contractFactory = new ethers.ContractFactory(abi, bin, wallet);
 
-  console.log("=> Deploying the contract, please wait...");
+  console.log(`=> Deploying the contract, please wait...`);
   const contract = await contractFactory.deploy();
+
+  console.log(`=> Contract deployed to ${contract.address}`);
 
   // console.log("=> T ransaction response:");
   // console.log(contract.deployTransaction);
@@ -50,7 +52,8 @@ async function main() {
   console.log(`Current favorite number: ${currentFavoriteNumber}`);
 
   // Set number:
-  await contract.store("7");
+  let transactionResponse = await contract.store(7);
+  let transactionReceipt = await transactionResponse.wait();
   const updatedFavoriteNumber = await contract.retrieve();
   console.log(`Updated favorite number: ${updatedFavoriteNumber}`);
 }
